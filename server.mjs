@@ -31,13 +31,17 @@ const upload = multer({ storage });
 
 app.post("/generate-audio", upload.single("audioFile"), async (req, res) => {
     console.log(req.file.path);
+   const serverAddress = "http://localhost:3000"; 
+    const audioFilePath = req.file.path;
+    const publicAudioUrl = serverAddress + "/" + audioFilePath;
+    console.log(publicAudioUrl);
   try {
     const output = await replicate.run(model, {
       input: {
         model_version: "melody",
         prompt: req.body.prompt,
         duration: 28,
-        input_audio: req.file.path, // Use the uploaded file path
+        input_audio: publicAudioUrl, // Use the uploaded file path
       },
     });
 
