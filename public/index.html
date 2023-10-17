@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="container">
+
+    <h1>Music Generation</h1>
+    <form id="generationForm">
+        <label for="prompt">Enter Prompt:</label>
+        <input type="text" id="prompt" name="prompt" required class="large-input">
+        <br>
+        <label for="audioFile">Upload Audio File:</label>
+        <input type="file" id="audioFile" name="audioFile" accept=".mp3, .wav">
+        <br>
+        <br>
+        <button type="submit">Generate</button>
+        <br>
+        <br>
+    </form>
+    <audio id="audioPlayer" controls></audio>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
